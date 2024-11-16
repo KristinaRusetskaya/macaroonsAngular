@@ -10,6 +10,8 @@ import {ProductsType} from "./types/products.type";
 export class AppComponent {
   public showPresent: boolean = true;
 
+  public isActive: boolean = false;
+
   public contact: string = '+375 (29) 368-98-68';
 
   public instagram: string = 'Мы в Instagram';
@@ -77,5 +79,9 @@ export class AppComponent {
 
   public hideMenu(target: HTMLElement): void {
     target.classList.remove('open');
+  }
+
+  public activeMenu(): void {
+    this.isActive = !this.isActive;
   }
 }

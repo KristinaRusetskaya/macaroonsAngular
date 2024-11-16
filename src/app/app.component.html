@@ -3,8 +3,8 @@
     <div class="logo logo__header">
       <img src="assets/images/macaroons.png" alt="Логотип">
     </div>
-    <nav class="menu" id="menu" #menuElement>
-      <div class="close" (click)="hideMenu(menuElement)">
+    <nav class="menu" id="menu" [class.open]="isActive">
+      <div class="close" (click)="activeMenu()">
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
              viewBox="0 0 492 492" style="enable-background:new 0 0 492 492;" xml:space="preserve">
@@ -22,13 +22,13 @@
 </svg>
       </div>
       <ul class="menu__list">
-        <li class="menu-item" (click)="hideMenu(menuElement)">
+        <li class="menu-item" (click)="activeMenu(); scrollTo(positionsElement)">
           <a href="#" class="menu__link">Пироженки</a>
         </li>
-        <li class="menu-item" (click)="hideMenu(menuElement)">
+        <li class="menu-item" (click)="activeMenu(); scrollTo(descriptionElement)">
           <a href="#" class="menu__link">О нас</a>
         </li>
-        <li class="menu-item" (click)="hideMenu(menuElement)">
+        <li class="menu-item" (click)="activeMenu(); scrollTo(formElement)">
           <a href="#" class="menu__link">Оформить заказ</a>
         </li>
       </ul>
@@ -36,7 +36,7 @@
     <div class="contact header__contact">
       {{ contact }}
     </div>
-    <div class="burger" id="burger" (click)="showMenu(menuElement)">
+    <div class="burger" id="burger" (click)="activeMenu()">
       <svg class="burger__svg" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="22" viewBox="0 0 50 50">
         <path d="M 0 9 L 0 11 L 50 11 L 50 9 Z M 0 24 L 0 26 L 50 26 L 50 24 Z M 0 39 L 0 41 L 50 41 L 50 39 Z"></path>
       </svg>
@@ -60,7 +60,7 @@
     </div>
   </div>
 </section>
-<section class="description">
+<section class="description" #descriptionElement>
   <div class="container description__container">
     <div class="description__compounds">
       <div class="description__compound">
