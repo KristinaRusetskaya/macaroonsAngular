@@ -1,18 +1,20 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AdvantagesType} from "./types/advantages.type";
 import {ProductsType} from "./types/products.type";
+import {ProductsService} from "./services/products.service";
+import {CartService} from "./services/cart.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   public showPresent: boolean = true;
 
   public isActive: boolean = false;
 
-  public contact: string = '+375 (29) 368-98-68';
+  public contact: string = '375293689868';
 
   public instagram: string = 'Мы в Instagram';
 
@@ -35,33 +37,19 @@ export class AppComponent {
     }
   ]
 
-  public products: ProductsType[] = [
-    {
-      image: '1.png',
-      title: 'Макарун с малиной',
-      price: 1.70
-    },
-    {
-      image: '2.png',
-      title: 'Макарун с манго',
-      price: 1.70
-    },
-    {
-      image: '3.png',
-      title: 'Пирог с ванилью',
-      price: 1.70
-    },
-    {
-      image: '4.png',
-      title: 'Пирог с фисташками',
-      price: 1.70
-    },
-  ]
+  public products: ProductsType[] = [];
 
   public formValues = {
     productTitle: '',
     name: '',
     phone: ''
+  }
+
+  constructor(public productService: ProductsService, public cartService: CartService) {
+
+  }
+  ngOnInit() {
+    this.products = this.productService.getProducts();
   }
 
   public scrollTo(target: HTMLElement): void {
@@ -71,14 +59,9 @@ export class AppComponent {
   public addToCart(product: ProductsType, target: HTMLElement): void {
     this.scrollTo(target);
     this.formValues.productTitle = product.title;
-  }
-
-  public showMenu(target: HTMLElement): void {
-    target.classList.add('open');
-  }
-
-  public hideMenu(target: HTMLElement): void {
-    target.classList.remove('open');
+    this.cartService.count++;
+    this.cartService.sum += product.price;
+    alert(product.title + " добавлен в корзину!");
   }
 
   public activeMenu(): void {

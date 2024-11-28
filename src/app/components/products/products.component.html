@@ -1,0 +1,24 @@
+<div class="position__items">
+  <div class="position__image">
+    <img src="assets/images/{{product.image}}" alt="{{index+1}} макарун" class="position__img">
+  </div>
+  <div class="position__name">
+    {{ product.title }}
+  </div>
+  <div class="position__descriptions">
+    <div class="position__description">
+      <div class="position__quantity">
+        1 шт.
+      </div>
+      <div class="position__price">
+        {{ product.price | currency : '' : ''}} руб.
+      </div>
+    </div>
+    <div class="position__action">
+      <button class="button position__button" buttonBg
+              [coolButtonDefaultBgColor]="'linear-gradient( 180deg, rgb(113,8,30) 0%, rgb(215,72,92) 100%)'"
+              [coolButtonHoverBgColor]="'linear-gradient(180deg, rgb(75 5 19) 0%, rgb(169 55 71) 100%)'"
+              (click)="addProductToCard(product)">Заказать</button>
+    </div>
+  </div>
+</div>

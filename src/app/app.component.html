@@ -34,7 +34,7 @@
       </ul>
     </nav>
     <div class="contact header__contact">
-      {{ contact }}
+      {{ contact | numberPhone }}
     </div>
     <div class="burger" id="burger" (click)="activeMenu()">
       <svg class="burger__svg" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="22" viewBox="0 0 50 50">
@@ -52,7 +52,10 @@
         Macaroon!
       </div>
       <div class="info__action">
-        <button class="button info__button" (click)="scrollTo(positionsElement)">Выбрать макарун</button>
+        <button class="button info__button" buttonBg
+                [coolButtonDefaultBgColor]="'linear-gradient( 180deg, rgb(113,8,30) 0%, rgb(215,72,92) 100%)'"
+                [coolButtonHoverBgColor]="'linear-gradient(180deg, rgb(75 5 19) 0%, rgb(169 55 71) 100%)'"
+                (click)="scrollTo(positionsElement)">Выбрать макарун</button>
       </div>
     </div>
     <div class="info__image">
@@ -78,17 +81,7 @@
       </div>
     </div>
     <div class="description__advantages">
-      <div class="description__advantage" *ngFor="let advantage of advantages; let i = index">
-        <div class="description__ellipse">
-          <span class="description__number">{{ i+1 }}</span>
-        </div>
-        <div class="description__item">
-          {{ advantage.title }}
-        </div>
-        <div class="description__item-text">
-          {{ advantage.description }}
-        </div>
-      </div>
+      <advantages *ngFor="let advantage of advantages; let i = index" [advantage]="advantage" [index]="i"></advantages>
     </div>
   </div>
 </section>
@@ -96,27 +89,7 @@
   <div class="container positions__container">
     <h2 class="title positions__title">Выберите свой макарун</h2>
     <div class="position">
-      <div class="position__items" *ngFor="let product of products; let i = index">
-        <div class="position__image">
-          <img src="assets/images/{{product.image}}" alt="{{i+1}} макарун" class="position__img">
-        </div>
-        <div class="position__name">
-          {{ product.title }}
-        </div>
-        <div class="position__descriptions">
-          <div class="position__description">
-            <div class="position__quantity">
-              1 шт.
-            </div>
-            <div class="position__price">
-              {{ product.price }} руб.
-            </div>
-          </div>
-          <div class="position__action">
-            <button class="button position__button" (click)="addToCart(product, formElement)">Заказать</button>
-          </div>
-        </div>
-      </div>
+      <products *ngFor="let product of products; let i = index" [product]="product" [index]="i" (addToCartEvent)="addToCart($event, formElement)"></products>
     </div>
   </div>
 </section>
@@ -146,7 +119,10 @@
       <input type="text" class="input form__input" placeholder="Ваше имя" [(ngModel)]="formValues.name">
       <input type="text" class="input form__input" placeholder="+375 (__) ___ - __ - __" [(ngModel)]="formValues.phone">
       <div class="form__action">
-        <button class="button form__button">Оформить заказ</button>
+        <button class="button form__button" buttonBg
+                [coolButtonDefaultBgColor]="'linear-gradient( 180deg, rgb(113,8,30) 0%, rgb(215,72,92) 100%)'"
+                [coolButtonHoverBgColor]="'linear-gradient(180deg, rgb(75 5 19) 0%, rgb(169 55 71) 100%)'">
+          Оформить заказ</button>
       </div>
     </div>
   </div>
@@ -170,15 +146,15 @@
       </div>
     </div>
     <div class="contact footer__contact">
-      {{ contact }}
+      {{ contact | numberPhone }}
     </div>
   </div>
   <div class="present__ellipse" *ngIf="showPresent">
-    <img src="assets/images/present.png" alt="Подарок" class="present__img">
+    <div class="present__count">{{cartService.count}}</div>
+    <img src="assets/images/cart.png" alt="Подарок" class="present__img">
     <div class="present__border">
       <div class="present__text">
-        <span class="present__span">Оформите заказ</span>
-        <span class="present__span">и получите подарок!</span>
+        <span class="present__span">{{cartService.sum.toFixed(2)}} руб.</span>
       </div>
     </div>
   </div>

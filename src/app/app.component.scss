@@ -68,19 +68,7 @@
   max-width: 345px;
   margin-bottom: 80px;
 }
-.button {
-  background-image: linear-gradient( 180deg, rgb(113,8,30) 0%, rgb(215,72,92) 100%);
-  border-radius: 30px;
-  border: 0;
-  font-family: "GilroyBold", sans-serif;
-  color: rgb(255, 255, 255);
-  cursor: pointer;
-  transition-property: box-shadow;
-  transition-duration: 500ms;
-}
-.button:hover {
-  box-shadow: 0 5px 9px 1px rgba(130, 19, 40, 0.5);
-}
+
 .info__button {
   font-size: 18px;
   width: 240px;
@@ -171,43 +159,6 @@
   grid-template-columns: repeat(4, 220px);
   padding-top: 57px;
 }
-.description__advantage:hover .description__ellipse {
-  background-color: #eba8b1;
-}
-.description__advantage:hover .description__number {
-  color: rgb(130, 19, 40);
-}
-.description__ellipse {
-  border-radius: 50%;
-  background-color: rgb(130, 19, 40);
-  width: 70px;
-  height: 70px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 13px;
-  transition: background-color 500ms;
-}
-.description__number {
-  position: absolute;
-  font-size: 60px;
-  font-family: "GilroyExtraBold", sans-serif;
-  color: rgb(255, 255, 255);
-  top: 12px;
-  transition: color 500ms;
-}
-.description__item {
-  font-size: 20px;
-  font-family: "GilroyExtraBold", sans-serif;
-  color: rgb(51, 25, 7);
-  margin-bottom: 20px;
-}
-.description__item-text {
-  font-size: 15px;
-  font-family: "GilroyMedium", sans-serif;
-  color: rgb(51, 25, 7);
-  line-height: 1.333;
-}
 .positions {
   background: #eba8b1;
   padding: 120px 16px;
@@ -222,52 +173,6 @@
   display: grid;
   grid-template-columns: repeat(4, 259px);
   grid-column-gap: 29px;
-}
-.position__items {
-  border: 2px solid rgb(255, 255, 255);
-  border-radius: 20px;
-  width: 259px;
-  height: 225px;
-  position: relative;
-  padding-bottom: 27px;
-  box-sizing: border-box;
-}
-.position__img {
-  transition: all 500ms;
-}
-.position__items:hover .position__img {
-  transform: scale(1.1);
-}
-.position__image {
-  position: absolute;
-  text-align: center;
-  left: 34px;
-  bottom: 160px;
-}
-.position__name {
-  margin: 109px 0 26px 0;
-  text-align: center;
-  font-size: 18px;
-  font-family: "TavolgaFree", sans-serif;
-  color: rgb(255, 255, 255);
-}
-.position__descriptions {
-  display: flex;
-  padding: 0 20px;
-  justify-content: space-between;
-}
-.position__description {
-  font-size: 15px;
-  font-family: "GilroyRegular", sans-serif;
-  color: rgb(255, 255, 255);
-}
-.position__quantity {
-  margin-bottom: 16px;
-}
-.position__button {
-  width: 130px;
-  height: 50px;
-  font-size: 16px;
 }
 .form {
   background: #ffefef;
@@ -403,12 +308,39 @@
 .present__ellipse:hover {
   box-shadow: 0px 0px 12.6px 2.4px rgba(130, 19, 40, 0.5);
 }
+.present__count {
+  z-index: 2;
+  content: "2";
+  font-family: "GilroyMedium", sans-serif;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: white;
+  color: rgb(119, 10, 29);
+  border: 2px solid rgb(119, 10, 29);
+  position: absolute;
+  top: 0;
+  left: 60px;
+}
+.present__img {
+  width: 55%;
+  height: 55%;
+  position: absolute;
+  top: 20px;
+  left: 15px;
+}
 .present__border {
+  justify-content: center;
+  display: flex;
   border: 2px solid rgb(119, 10, 29);
   border-radius: 10px;
   background-color: rgb(254, 239, 238);
-  width: 172px;
-  height: 65px;
+  width: 110px;
+  height: 60px;
   position: absolute;
   align-items: center;
   box-sizing: border-box;
@@ -435,12 +367,12 @@
   border: 10px solid transparent;
   border-left-color: #FEEFEE;
   position: absolute;
-  left: 99%;
+  left: 98%;
   bottom: 20px;
   content:''
 }
 .present__text {
-  font-size: 15px;
+  font-size: 18px;
   font-family: "GilroyMedium", sans-serif;
   color: rgb(119, 10, 29);
   line-height: 1.333;
@@ -556,13 +488,7 @@
     grid-column-gap: 54px;
     grid-row-gap: 80px;
   }
-  .description__advantage {
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-  }
+
   .form__container {
     padding-right: 15px;
     padding-left: 15px;
@@ -814,13 +740,6 @@
   .description__advantages {
     grid-column-gap: 15px;
     grid-row-gap: 36px;
-  }
-  .description__item {
-    font-size: 18px;
-  }
-  .description__item-text {
-    font-size: 13px;
-    line-height: 18px;
   }
   .positions {
     padding-top: 100px;

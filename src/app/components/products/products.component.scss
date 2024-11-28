@@ -1,0 +1,46 @@
+.position__items {
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 20px;
+  width: 259px;
+  height: 225px;
+  position: relative;
+  padding-bottom: 27px;
+  box-sizing: border-box;
+}
+.position__img {
+  transition: all 500ms;
+}
+.position__items:hover .position__img {
+  transform: scale(1.1);
+}
+.position__image {
+  position: absolute;
+  text-align: center;
+  left: 34px;
+  bottom: 160px;
+}
+.position__name {
+  margin: 109px 0 26px 0;
+  text-align: center;
+  font-size: 18px;
+  font-family: "TavolgaFree", sans-serif;
+  color: rgb(255, 255, 255);
+}
+.position__descriptions {
+  display: flex;
+  padding: 0 20px;
+  justify-content: space-between;
+}
+.position__description {
+  font-size: 15px;
+  font-family: "GilroyRegular", sans-serif;
+  color: rgb(255, 255, 255);
+}
+.position__quantity {
+  margin-bottom: 16px;
+}
+.position__button {
+  width: 130px;
+  height: 50px;
+  font-size: 16px;
+}

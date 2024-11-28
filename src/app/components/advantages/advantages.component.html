@@ -1,0 +1,11 @@
+<div class="description__advantage">
+  <div class="description__ellipse">
+    <span class="description__number">{{ index+1 }}</span>
+  </div>
+  <div class="description__item">
+    {{ advantage.title }}
+  </div>
+  <div class="description__item-text">
+    {{ advantage.description | splitDescription }}
+  </div>
+</div>

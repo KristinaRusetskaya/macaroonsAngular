@@ -1,0 +1,55 @@
+.description__advantage:hover .description__ellipse {
+  background-color: #eba8b1;
+}
+.description__advantage:hover .description__number {
+  color: rgb(130, 19, 40);
+}
+.description__ellipse {
+  border-radius: 50%;
+  background-color: rgb(130, 19, 40);
+  width: 70px;
+  height: 70px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 13px;
+  transition: background-color 500ms;
+}
+.description__number {
+  position: absolute;
+  font-size: 60px;
+  font-family: "GilroyExtraBold", sans-serif;
+  color: rgb(255, 255, 255);
+  top: 12px;
+  transition: color 500ms;
+}
+.description__item {
+  font-size: 20px;
+  font-family: "GilroyExtraBold", sans-serif;
+  color: rgb(51, 25, 7);
+  margin-bottom: 20px;
+}
+.description__item-text {
+  font-size: 15px;
+  font-family: "GilroyMedium", sans-serif;
+  color: rgb(51, 25, 7);
+  line-height: 1.333;
+}
+@media screen and (max-width: 929px) {
+  .description__advantage {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 479px) {
+  .description__item {
+    font-size: 18px;
+  }
+  .description__item-text {
+    font-size: 13px;
+    line-height: 18px;
+  }
+}
